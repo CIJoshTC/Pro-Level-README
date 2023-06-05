@@ -6,4 +6,13 @@ function renderLicenseBadge(license) {
   }
   return `![License](https://img.shields.io/badge/license-${encodeURIComponent(license)}-blue.svg)`;
 }
-
+ // TODO: Create a function that returns the license link
+  // If there is no license, return an empty string
+  function renderLicenseLink(license) {
+    if (license === 'None'){
+      return '';
+    }
+  
+    return `\n* [License](#license)\n`; 
+    
+  }
