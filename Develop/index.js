@@ -10,33 +10,56 @@ const generateMarkdown = require('/generateMarkdown');
 //create object inside of array
 const questions = [
     {
-        //title
+        type: 'input',
+        name: 'title',
+        message: 'what would you like to name the project?',
+       
     },
     {
-        //Description
+        type: 'input',
+        name: 'description',
+        message: 'Enter a description for your project:',
+       
     }, 
     {
-
+        type: 'list',
+        name: 'technolgies',
+        message: []
+       
+        
     },
     {
-        //technologies used
+        type: 'input',
+        name: 'usage',
+        message: 'Enter usage information:',
+       
+        
     },
     {
-        //usage
+        type: 'input',
+        name: 'tests',
+        message: 'Enter test instructions:',
+           
     },
     {
-        //tests
+        type: 'list',
+        name: 'license',
+        message: 'Choose a license for your project:',
+        choices: ['MIT', 'Apache 2.0', 'GPL 3.0', 'BSD 3', 'None'],
+           
     },
     {
-        //lisence
+        type: 'input',
+        name: 'github',
+        message: 'Enter your GitHub username:',
+          
     },
     {
-        //Github
+        type: 'input',
+        name: 'email',
+        message: 'Enter your email address:',
+    
     },
-    {
-        //Email
-    }
-
 ];
 
 // TODO: Create a function to write README file
