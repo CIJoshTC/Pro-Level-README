@@ -33,9 +33,7 @@ function renderLicenseBadge(license) {
       return `# ${data.title}
       ${renderLicenseBadge(data.license)}
       
-    `;
-  
-  
+    `
       fs.writeFile(fileName, readmeContent, (err) => {
           if (err) {
               console.error(err);
