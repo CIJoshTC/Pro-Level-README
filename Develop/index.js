@@ -30,6 +30,13 @@ const questions = [
     },
     {
         type: 'input',
+        name: 'installation',
+        message: 'enter install information:',
+       
+        
+    },
+    {
+        type: 'input',
         name: 'contribution',
         message: 'enter contribution:',
        
@@ -67,6 +74,8 @@ function writeToFile(fileName, data) {
         title,
         description,
         contribution,
+        usage,
+        installation,
         instructions,
         license,
         github,
@@ -81,9 +90,18 @@ ${description}
 
 ## Table of Contents
 # Contribution
+# Installation
+# Usage
 
 ## Contribution
 ${contribution}
+
+## Installation
+${installation}
+
+## Usage
+${usage}
+
 
 ## Test Instructions
 ${instructions}
