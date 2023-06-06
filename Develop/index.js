@@ -1,4 +1,4 @@
-// TODO: Include packages needed for this application
+//  Include packages needed for this application
 const fs = require('fs');
 const inquirer = require('inquirer');
 const generateMarkdown = require('./generateMarkdown');
@@ -6,7 +6,7 @@ const generateMarkdown = require('./generateMarkdown');
 
 
 
-// TODO: Create an array of questions for user input
+//  Create an array of questions for user input
 //create object inside of array
 const questions = [
     {
@@ -24,13 +24,20 @@ const questions = [
     {
         type: 'input',
         name: 'usage',
-        message: 'Enter usage information:',
+        message: 'enter usage information:',
        
         
     },
     {
         type: 'input',
-        name: 'tests',
+        name: 'contribution',
+        message: 'enter contribution:',
+       
+        
+    },
+    {
+        type: 'input',
+        name: 'instructions',
         message: 'Enter test instructions:',
            
     },
@@ -55,9 +62,42 @@ const questions = [
     },
 ];
 
-// TODO: Create a function to write README file
 function writeToFile(fileName, data) {
-    fs.writeFile(fileName, data, (err) => {
+    const {
+        title,
+        description,
+        contribution,
+        instructions,
+        license,
+        github,
+        email
+    } = data;
+
+    const readmeContent = `
+# ${title}
+
+## Description
+${description}
+
+## Table of Contents
+# Contribution
+
+## Contribution
+${contribution}
+
+## Test Instructions
+${instructions}
+
+## License
+This project is licensed under the ${license} license.
+
+## Questions
+For any questions, please feel free to reach out through my GitHub profile or via email:
+- GitHub: ${github}
+- Email: ${email}
+`;
+
+    fs.writeFile(fileName, readmeContent, (err) => {
         if (err) {
             console.error(err);
         } else {
@@ -66,11 +106,12 @@ function writeToFile(fileName, data) {
     });
 }
 
-// TODO: Create a function to initialize app
+// Create a function to initialize app
 function init() {
     inquirer.prompt(questions).then((answers) => {
+        console.log(answers)
         const markdown = generateMarkdown(answers);
-        writeToFile('README.md', markdown);
+        writeToFile('README.md', answers);
     });
 }
 
